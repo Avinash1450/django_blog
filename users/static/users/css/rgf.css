@@ -1,0 +1,31 @@
+.rgmain{
+	margin: 1% 0;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.rgcontainer{
+	border: 1px solid black;
+	border-radius: initial;
+	display: flex;
+	flex-direction: column;
+	width: 45vw;
+	 background: radial-gradient(rgb(148 148 245) 70%,rgb(187 179 170));
+}
+.outerbtn{
+	margin: 1% 0;
+}
+.rgcontainer li{
+	margin: 1%;
+}
+form{
+	margin: 0% 1%;
+	padding: 2% 2%;
+}
+.leg{
+	text-align: center;
+	font-weight: bolder;
+	font-size: 2rem;
+
+}

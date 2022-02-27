@@ -1,0 +1,75 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/login.css' %}">
+
+{% endblock%}
+
+{% block content %}
+
+<div class="main">
+	<div class="box">
+		<legend>{{ title }}</legend>
+	<div class="inputtags">
+		{% if messages %}
+
+		{% for message in messages %}
+
+			{{ message }}
+
+		{% endfor %}
+
+		{% endif %}
+	</div>
+<form method="POST">
+	{% csrf_token %}
+	{% if title == 'Login' %}	
+	<div class="inputtags">
+		<label for="username">username</label>
+		<input type="text" name="username">
+	</div>
+	<div class="inputtags">
+		<label for="password">password</label>
+		<input type="password" name="password">
+	</div>
+	<div class="inputtags">
+		<a href="{% url 'login' %}"><input type="submit" name="submit"></a>
+	</div>
+</form>
+	<div>
+		<span>Not registered?<a href="{% url 'register' %}">Join Now</a></span>
+	</div>
+	{% else %}
+	<div class="inputtags">
+		<label for="title"><p>Post Title</p></label>
+		<textarea name="title" cols="50" rows="2">{{ form.title.value }}</textarea>
+	</div>
+	<div class="inputtags">
+		<label for="sub_title"><p>Post Sub Title</p></label>
+		<textarea name="sub_title" cols="50" rows="5">{{ form.sub_title.value }}</textarea>
+	</div>
+	<div class="inputtags">
+		<label for="content"><p>Post Content</p></label>
+		<textarea name="content" cols="50" rows="10">{{ form.content.value }}</textarea>
+	</div>
+	<div class="inputtags">
+		<input type="hidden"  name="user" value="{{ request.user.id }}"/>
+	</div>
+
+	{% if title == 'Add Post' %}
+	<div class="inputtags">
+		<a href="{% url 'addpost' %}"><input type="submit" name="submit"></a>
+	</div>
+	{% else %}
+	<div class="inputtags">
+		<a href="{% url 'updatepost' postid %}"><input type="submit" name="submit"></a>
+	</div>
+
+ 	{% endif %}
+	{% endif %}
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+.main{
+	display: flex;
+	/*flex-direction: column ;*/
+	justify-content: center;
+}
+
+.box{
+	padding:2% 0%;
+	border: 1px solid black;
+	width: 40vw;
+	 background: radial-gradient(rgb(148 148 245) 70%,rgb(187 179 170));
+}
+.inputtags{
+	margin: 3% 0%;
+	font-weight: bold;
+}
+legend{
+	font-weight: bolder;
+	font-size: 2rem;
+}
+a{
+	text-decoration:none ;
+	font-weight: bold;
+	font-size: 1rem;
+}

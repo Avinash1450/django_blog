@@ -1,0 +1,36 @@
+{% include 'blog/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+ <link rel="stylesheet" href="{% static 'blog/reg.css' %}">
+{% endblock %}
+{% block content %}
+<div class="main">
+    <li style="list-style: none">            
+        <div class="container">
+        	<fieldset>	
+        	<legend>Tell Us more about you {{request.user.username}}</legend>
+        	<p>{% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                {% endif %}
+               </p>
+            <form action="{% url 'users_register' %}" method="POST" enctype="multipart/form-data">
+        	    {% csrf_token %}
+                {{ p_form | crispy }}       
+       			{% if form.errors %}
+       				{% for form.fields in form.errors.field_errors %}
+       					{{ field.errors }}
+       				{% endfor %}
+       			{% endif %}
+        	   <div class="outerbtn">
+        		  <button type="submit" class="innerbtn">Sign Up</button>
+        	   </div>
+         	</form>
+        	</fieldset>
+        </div>
+    </li>
+</div>
+{% endblock %}
+ 
