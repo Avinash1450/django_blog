@@ -74,3 +74,6 @@ def deletepost(request,postid):
 	post.delete()
 	messages.warning(request,f"{post.title} has been deleted")
 	return redirect('profile')
+
+
+#this is the pagination

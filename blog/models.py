@@ -7,7 +7,6 @@ class Blogpost(models.Model):
 	title = models.CharField(max_length=30)
 	sub_title = models.CharField(max_length=50)
 	content = models.TextField(max_length=500)
-	alter = models.CharField(max_length=30)
 	date = models.DateTimeField(auto_now_add = True)
 
 	class Meta:
@@ -15,7 +14,3 @@ class Blogpost(models.Model):
 
 	def __str__(self):
 		return self.title
-
-	def alter(self,obj):
-		self.alter = obj.content[:20]
-		return self.alter
