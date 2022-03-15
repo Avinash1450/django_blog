@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'blog/css/profile.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/profile.css' %}?{% now "U" %}">
 {% endblock %}
 
 {% block content %}
@@ -34,7 +34,7 @@
             <div class="age"><h4>{{ request.user.profile.age }}</h4></div>
             <div class="state"><h4>{{ request.user.profile.state }}</h4></div>
             <div class="about"><p>{{ request.user.profile.about }}</p></div>
-            <a href="{% url 'updateprofile' %}"><button class="btn">Update</button></a>
+            <a href="{% url 'updateprofile' %}"><button class="btn">UPDATE</button></a>
         </div>
         </div>
         </div>
@@ -49,8 +49,8 @@
             <div class="subtitle"><p>{{ post.sub_title }}</p></div>
         </div>
         <div class="edit">
-            <a href="{% url 'updatepost' post.blog_id %}"><button class="update btn">update</button></a>
-             <a href="{% url 'deletepost' post.blog_id %}"><button class="delete btn">delete</button></a>
+            <a href="{% url 'updatepost' post.blog_id %}"><button class="update btn">UPDATE</button></a>
+             <a href="{% url 'deletepost' post.blog_id %}"><button class="delete btn">DELETE</button></a>
         </div>
         </div>
         </div>

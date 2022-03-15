@@ -4,12 +4,12 @@ body{
     overflow-x: hidden;
     font-size: 1em;
     font-family: -webkit-pictograph;
-    color: chocolate;
+    color: black;
 }
 *{
     list-style: none;
     text-decoration: none;
-    color: chocolate;
+    color: black;
 }
 .nav{
     display: flex;
@@ -70,19 +70,19 @@ body{
 .container{
     border-radius: 1.5%;
     background: radial-gradient(rgb(148 148 245) 70%,rgb(187 179 170));
-    width: 30%;
+    width: 35%;
     padding: 1% 1%;
     border: 1px solid black;
 }
 .title{
     font-size: 2vw;
-    line-height: 0.5;
+    line-height: 1;
     font-weight: bolder;
 }
 .subtitle{
     font-weight: bold;
     font-size: 1vw;
-    line-height: 0;
+    line-height: 0.5;
 }
 .content{
     margin: 0 15%;
@@ -97,16 +97,33 @@ body{
     color: rgb(26, 22, 22);
     text-align: justify;        
 }
-.userdetail a:hover{
-    color: rgb(165, 154, 137);
-}
-.content p:hover{
-    color: rgb(163, 160, 152);
-}
+
+
 .onsmall{
     display: none;
 }
 
+.userimage{
+    /*border:2px solid red ;*/
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+img{
+    display: inline-block;
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.upper-wrapper{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 
 @media only screen and (max-width: 850px){
@@ -189,7 +206,8 @@ body{
         text-align: justify;
     
     }
-    .userdetail{
+    .userdetail,.upper-wrapper{
+        width: 100%;
         font-size: 2vw;
         display: flex;
         flex-direction: column

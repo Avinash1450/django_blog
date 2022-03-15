@@ -52,9 +52,16 @@
             font-weight: bold;
             line-height: 1vh;
         }
+        .btn{
+            padding: 5px 5px;
+            font-size: 11px;
+            font-weight:bold;
+            border-radius: 8px;
+            border: 2px solid black;
+        }
         .btn:hover{
             cursor: pointer;
-            background: rgb(235, 248, 251);
+            background-color: rgba(0, 0, 0, 0.1);
         }
 
 @media only screen and (max-width: 850px){
