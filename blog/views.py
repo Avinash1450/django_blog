@@ -6,14 +6,20 @@ from .models import Blogpost
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from .decorators import user_logged_in
+from django.core.paginator import Paginator
 
 
 # Create your views here.
 def homep(request):
+	page_number = request.GET.get('page')
+	if page_number is None:
+		page_number = 1
 	blogs = Blogpost.objects.all().order_by('-date')
-	print(blogs.count())
+	paginator = Paginator(blogs, 3)
+	page_obj = paginator.get_page(page_number)
 	context = {
-		'blogs' : blogs
+		'blogs' : blogs,
+		'page_obj' : page_obj
 	}
 	return render(request, 'blog/home.html',context)
 

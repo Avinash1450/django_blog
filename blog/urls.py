@@ -3,7 +3,7 @@ from . import views
 
 apps = 'blog'
 urlpatterns = [
-   path('?page=1', views.homep, name='bloghome')
+   path('', views.homep, name='bloghome')
 ]
 
 

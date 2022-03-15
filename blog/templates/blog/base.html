@@ -7,11 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/base.css' %}?{% now "U" %}"> 
     {% block css %}
     
     {% endblock%}
-    <!-- <link rel="stylesheet" type="text/css" href="../static/blog/css/profile.css">  -->
 </head>
 <body>
     <div class="nav">
@@ -27,15 +29,15 @@
     </div>
     <div class="lower" id="navlower">
     <ul>
-        <li class="li1"><a href="{% url 'bloghome' %}" style="text-decoration: none;color: black;">Home</a></li>
+        <li class="li1"><a href="{% url 'bloghome' %}" style="text-decoration: none;color: black;">HOME</a></li>
         {% if request.user.id is None %}
-            <li class="li3"><a href="{% url 'register' %}" style="text-decoration: none;color: black;">Register</a></li>
-            <a href="{% url 'login' %}" style="text-decoration: none;color: black;">Login</a>
+            <li class="li3"><a href="{% url 'register' %}" style="text-decoration: none;color: black;">REGISTER</a></li>
+            <a href="{% url 'login' %}" style="text-decoration: none;color: black;">LOGIN</a>
         {% else %}
-         <li class="li2"><a href="{% url 'profile' %}" style="text-decoration: none;color: black;">Profile</a></li>
-        <li class="li4"><a href="{% url 'loggedout' %}" style="text-decoration: none;color: black;">Logout</a></li>
+         <li class="li2"><a href="{% url 'profile' %}" style="text-decoration: none;color: black;">PROFILE</a></li>
+        <li class="li4"><a href="{% url 'loggedout' %}" style="text-decoration: none;color: black;">LOGOUT</a></li>
         {% endif %}
-         <li class="li4"><a href="{% url 'addpost' %}" style="text-decoration: none;color: black;">AddPost</a></li>
+         <li class="li4"><a href="{% url 'addpost' %}" style="text-decoration: none;color: black;">ADDPOST</a></li>
        
     </ul>
     </div>

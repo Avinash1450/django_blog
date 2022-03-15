@@ -10,7 +10,7 @@
 {% block content %}
 
 
-{% for blog in blogs %}
+{% for blog in page_obj %}
 <div class="main">      
         <div class="container">
             <div class="upper-wrapper">
@@ -31,6 +31,17 @@
 </div>
 
 
+
 {% endfor %}
+
+<div class="paginator">
+    {% if page_obj.has_previous %}
+    <div class="prev"><a class="pagelink" href="?page={{ page_obj.previous_page_number }}">&larr;</a></div>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <div class="next"><a class="pagelink" href="?page={{ page_obj.next_page_number }}">&rarr;</a></div>
+    {% endif %}
+</div>
+
 
 {% endblock %}
