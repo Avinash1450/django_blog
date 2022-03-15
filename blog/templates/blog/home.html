@@ -1,17 +1,30 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
+{% block css %}
+
+    <!-- <link rel="stylesheet" type="text/css" href="{% static  'blog/css/userimage.css' %} "> -->
+
+{% endblock %}
 
 {% block content %}
 
 
 {% for blog in blogs %}
-<div class="main">           
+<div class="main">      
         <div class="container">
-            <div class="title"><p>{{ blog.title }}</p></div>
-            <div class="subtitle"><p>{{ blog.sub_title}}</p></div>
-            <div class="content"><a href=""><p>{{ blog.content }}...</p></a></div>
+            <div class="upper-wrapper">
+                <div class="userimage">
+                <a href="{% url 'userprofile' blog.user.username %}"><img src={{ blog.user.profile.image.url }}></a>
+                </div>
+            <div class="lower-wrapper">     
+                <div class="title"><span>{{ blog.title }}</span></div>
+                <div class="subtitle"><p>{{ blog.sub_title}}</p></div>
+                </div>
+            </div>
+            <div class="content"><p>{{ blog.content }}</p></div>
         <div class="userdetail">
-            <p>posted by:-<a href="{% url 'userprofile' blog.user.username %}">{{blog.user }}</a></p>
+            <p>posted by:-<a href="{% url 'userprofile' blog.user.username %}">{{ blog.user }}</a></p>
             <p>{{ blog.date }}</p>
         </div>
     </div> 
@@ -19,4 +32,5 @@
 
 
 {% endfor %}
+
 {% endblock %}

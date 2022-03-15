@@ -11,6 +11,7 @@ from .decorators import user_logged_in
 # Create your views here.
 def homep(request):
 	blogs = Blogpost.objects.all().order_by('-date')
+	print(blogs.count())
 	context = {
 		'blogs' : blogs
 	}
