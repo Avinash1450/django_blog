@@ -8,11 +8,15 @@
 	padding:2% 0%;
 	border: 1px solid black;
 	width: 40vw;
-	 background: radial-gradient(rgb(148 148 245) 70%,rgb(187 179 170));
+	background-color: rgb(81, 192, 174);
 }
 .inputtags{
 	margin: 3% 0%;
 	font-weight: bold;
+	color: black;
+}
+textarea{
+	color: black;
 }
 legend{
 	font-weight: bolder;
@@ -22,4 +26,17 @@ a{
 	text-decoration:none ;
 	font-weight: bold;
 	font-size: 1rem;
+	color: black;
+}
+.btn{
+	color: black;
+	padding: 5px 5px;
+	font-size: 11px;
+	font-weight:bold;
+	border-radius: 8px;
+	border: 2px solid black;
+}
+.btn:hover{
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.1);
 }

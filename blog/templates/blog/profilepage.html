@@ -31,8 +31,8 @@
         <div class="profilepic"><img src="{{ request.user.profile.image.url }}" alt="img"></div>
         <div class="profiledetails">
             <div class="name"><h2>{{ request.user.username }}</h2></div>
-            <div class="age"><h4>{{ request.user.profile.age }}</h4></div>
-            <div class="state"><h4>{{ request.user.profile.state }}</h4></div>
+            <div class="age"><p>{{ request.user.profile.age }}</p></div>
+            <div class="state"><p>{{ request.user.profile.state }}</p></div>
             <div class="about"><p>{{ request.user.profile.about }}</p></div>
             <a href="{% url 'updateprofile' %}"><button class="btn">UPDATE</button></a>
         </div>

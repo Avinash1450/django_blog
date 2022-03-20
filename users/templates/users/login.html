@@ -35,7 +35,7 @@
 		<input type="password" name="password">
 	</div>
 	<div class="inputtags">
-		<a href="{% url 'login' %}"><input type="submit" name="submit"></a>
+		<a href="{% url 'login' %}"><input class="btn" type="submit" name="submit"></a>
 	</div>
 </form>
 	<div>
@@ -60,11 +60,11 @@
 
 	{% if title == 'Add Post' %}
 	<div class="inputtags">
-		<a href="{% url 'addpost' %}"><input type="submit" name="submit"></a>
+		<a href="{% url 'addpost' %}"><input class="btn" type="submit" name="submit"></a>
 	</div>
 	{% else %}
 	<div class="inputtags">
-		<a href="{% url 'updatepost' postid %}"><input type="submit" name="submit"></a>
+		<a href="{% url 'updatepost' postid %}"><input class="btn" type="submit" name="submit"></a>
 	</div>
 
  	{% endif %}

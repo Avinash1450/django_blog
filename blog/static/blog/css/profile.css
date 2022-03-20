@@ -10,7 +10,7 @@
             margin: 0.5% auto;
         }
         .box-profile{
-             background: radial-gradient(rgb(148 148 245) 70%,rgb(187 179 170));
+            background-color: rgb(81, 192, 174);
             margin: 0.5%;
             padding: 1%;
             border: 1px solid black;
@@ -22,22 +22,19 @@
             flex-direction: row;      
         }
         .profilepic{
-            /* border: 1px solid red; */
             width: 18vw;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .profiledetails{
-            /* border: 1px solid red; */
             padding: 2%;
             font-weight:500;
             width: 22vw;
             text-align: center;
-            line-height: 15%; 
+            line-height: 0.7; 
         }
         .userposts{
-            /* border: 1px solid black; */
             padding: 2%;
             margin: 1%;
             width: 40vw;
@@ -50,9 +47,10 @@
         }
         .title,.subtitle{
             font-weight: bold;
-            line-height: 1vh;
+            line-height: 0.5;
         }
         .btn{
+            color: black;
             padding: 5px 5px;
             font-size: 11px;
             font-weight:bold;
@@ -70,11 +68,8 @@
         flex-direction: column;
         align-items: center;
     }
-    .box-profile{
-    }
     img{
         margin-top: 5%;
-    }
     }
     .about{
         line-height: 1;
