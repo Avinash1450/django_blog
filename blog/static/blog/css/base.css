@@ -145,6 +145,50 @@ img{
     font-weight: 900;
 }
 
+.sidebar{
+    border: 1px solid black;
+    width: 25%;
+    height: 200px;
+    display: inline-block;
+    position: absolute;
+    left: 73%;
+    top: 10%;
+    color: black;
+    font-weight: bolder;
+    font-size: 15px;
+    background-color:rgb(81, 192, 174);
+    z-index: -10;
+}
+
+.link{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+
+}
+.sidebar a{
+    width: 70%;
+    padding: 5px;
+    border: 1px solid whitesmoke;
+}
+
+.searchbar{
+    height: 100%;
+    color: black;
+    margin: 5px 0;
+}
+
+.searchbar form input{
+    color: black;
+    font-weight: bold;
+    padding: 3px;
+    margin: 2px;
+    border-radius: 5px;
+}
+
 
 
 @media only screen and (max-width: 850px){
@@ -238,5 +282,8 @@ img{
     }
     .responsive{ 
         display: flex;
+    }
+    .sidebar{
+        top: 6%;
     }
 }

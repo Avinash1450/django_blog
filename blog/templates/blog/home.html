@@ -34,6 +34,14 @@
 
 {% endfor %}
 
+<div class="sidebar">
+    <div class="link">
+    <a href="">most recent</a>
+    <a href="">last week</a>
+    <a href="">last month</a>
+    </div>
+</div>
+
 <div class="paginator">
     {% if page_obj.has_previous %}
     <div class="prev"><a class="pagelink" href="?page={{ page_obj.previous_page_number }}">&larr;</a></div>
