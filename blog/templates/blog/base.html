@@ -41,9 +41,10 @@
        
         </ul>
         <div class="searchbar">
-            <form>
-                <input type="text" placeholder="search a post" name="">
-                <input class="btn" type="submit" name="">
+            <form method="post" action="{% url 'bloghome' %}">
+                {% csrf_token %}
+                <input type="text" placeholder="search a post" name="title">
+                <input class="btn" type="submit" name="submit">
             </form>
         </div>
     </div>

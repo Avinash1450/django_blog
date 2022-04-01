@@ -47,9 +47,11 @@ body{
     transition-duration: 0.5s;
 }
 
+
 .main{
-    margin: 1% 0;
+    margin: 1% auto;
     text-align: center;
+    /*width: 35%;*/
     display: flex;
     justify-content: center;
 }
@@ -66,10 +68,12 @@ body{
     color: black;
 }
 .container{
+    display: inline-block;
     width: 35%;
     background-color: rgb(81, 192, 174);
     padding: 1% 1%;
     border: 1px solid black;
+
 }
 .title{
     font-size: 2vw;
@@ -152,12 +156,12 @@ img{
     display: inline-block;
     position: absolute;
     left: 73%;
-    top: 10%;
+    top: 45%;
     color: black;
     font-weight: bolder;
     font-size: 15px;
     background-color:rgb(81, 192, 174);
-    z-index: -10;
+
 }
 
 .link{
@@ -284,6 +288,6 @@ img{
         display: flex;
     }
     .sidebar{
-        top: 6%;
+        top: 45%;
     }
 }

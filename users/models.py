@@ -22,13 +22,10 @@ class Profile(models.Model):
 			Profile.objects.create(user=instance)
 
 	@receiver(post_save, sender=User)
-	def Save_profile(sender, instance, created, **kwargs):
+	def save_profile(sender, instance, created, **kwargs):
 		instance.profile.save()
 
-	def imgprocess(self):
-		img = Image.open(self.image)
-		img = img.resize(50,50)
-		img.save()
+
 
 
 

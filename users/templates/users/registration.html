@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block css %}
- <link rel="stylesheet" href="{% static 'users/css/rgf.css' %}">
+ <link rel="stylesheet" href="{% static 'users/css/rgf.css' %}?{% now "U" %}">
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,8 @@
                             <span>{{ message }}</span>
                         {% endfor %}
                 {% endif %}
-            <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
+                <div class="regform">
+                <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
         	    {% csrf_token %}
                 {{ form | crispy }}       
        			{% if context.errors %}
@@ -27,6 +28,7 @@
         		  <button type="submit" class="btn">Sign Up</button>
         	   </div>
          	</form>
+         </div>
         </div>
 </div>
 {% endblock %}

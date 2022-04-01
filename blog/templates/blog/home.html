@@ -9,7 +9,7 @@
 
 {% block content %}
 
-
+<div class="outermain">
 {% for blog in page_obj %}
 <div class="main">      
         <div class="container">
@@ -30,15 +30,15 @@
     </div> 
 </div>
 
-
-
 {% endfor %}
+</div>
+
 
 <div class="sidebar">
     <div class="link">
-    <a href="">most recent</a>
-    <a href="">last week</a>
-    <a href="">last month</a>
+        <a href="{% url 'search' 'most recent' %}">most recent</a>
+        <a href="{% url 'search' 'last week' %}">last week</a>
+        <a href="{% url 'search' 'last month' %}">last month</a>
     </div>
 </div>
 
