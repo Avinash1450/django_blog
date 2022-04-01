@@ -2,8 +2,5 @@
 
 db.sqlite3
 
-blog/__pycache__
+__pycache__
 
-users/__pycache__
-
-project1/__pycahce__
