@@ -7,10 +7,10 @@ class Blogpost(models.Model):
 	title = models.CharField(max_length=30)
 	sub_title = models.CharField(max_length=50)
 	content = models.TextField(max_length=500)
-	date = models.DateTimeField(auto_now_add = True)
+	date = models.DateField(auto_now_add=True)
 
-	class Meta:
-		ordering = ['date']
 
 	def __str__(self):
 		return self.title
+
+
