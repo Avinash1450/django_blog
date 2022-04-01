@@ -193,6 +193,11 @@ img{
     border-radius: 5px;
 }
 
+.searchbar form button{
+    color: black;
+    cursor: pointer;
+}
+
 
 
 @media only screen and (max-width: 850px){

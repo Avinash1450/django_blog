@@ -15,6 +15,9 @@
 	font-weight: bold;
 	color: black;
 }
+.inputtags input{
+	color: black;
+}
 textarea{
 	color: black;
 	width: 90%;
