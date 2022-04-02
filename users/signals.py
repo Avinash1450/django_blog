@@ -5,7 +5,7 @@ from .models import Profile
 
 @receiver(post_save,sender=Profile)
 def alterimage(sender,created,instance,**kwargs):
-	if not created:
+	if created:
 		img = Image.open(instance.image)
 		size = (100,100)
 		img = img.resize(size)
