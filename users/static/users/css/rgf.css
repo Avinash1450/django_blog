@@ -23,6 +23,9 @@
 	margin: 0% 1%;
 	padding: 2% 2%;
 }
+form input{
+	color: black;
+}
 .leg{
 	text-align: center;
 	font-weight: bolder;
