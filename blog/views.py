@@ -98,19 +98,16 @@ def search(request,search):
 		page_number = 1
 	
 	if search == "most recent":
-		filter_date = date.today() - timedelta(days=7) 
+		filter_date = date.today() - timedelta(days=3)
 		blog = Blogpost.objects.filter(date__gte = filter_date)
-		print(blog)
 	elif search == "last week":
-		exclude_date = date.today() - timedelta(days=7)
-		blog = Blogpost.objects.filter(date__gte = exclude_date)
-		print(blog)
+		exclude_date = date.today() - timedelta(days=date.today().day)
+		blog = Blogpost.objects.filter(date__gt = exclude_date)
 	else:
 		t = date.today()
 		last_month_first_day = date(t.year,t.month-1,1)
 		last_month_last_day = date(t.year,t.month,1) - timedelta(days=1)
 		blog = Blogpost.objects.filter(date__gte = last_month_last_day).exclude(date__gte = last_month_last_day)
-		print(blog)
 	paginator = Paginator(blog, 2)
 	page_obj = paginator.get_page(page_number)
 	context = {
