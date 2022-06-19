@@ -21,15 +21,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('login/', users_views.loggedin, name='login'),
-    re_path(r'^\D+/loggedout/',users_views.loggedout, name='loggedout'),
-    path('updateprofile/', users_views.updateprofile, name='updateprofile'),
-    path('admin/', admin.site.urls),
-    path('', include('blog.urls')),
-    path('profile/<str:name>', blog_views.userprofile, name="userprofile"),
-    path('profile/', blog_views.profile, name='profile'),
-    path('register/', users_views.register, name='register'),
-    path('addpost/', blog_views.addpost, name='addpost'),
-    path('deletepost/<str:postid>', blog_views.deletepost, name='deletepost'),
-    path('updatepost/<int:postid>', blog_views.updatepost, name='updatepost')
+        path('blog/', include('blog.urls')),
+        path('user/', include('users.urls')),
+        path('admin/', admin.site.urls),
+
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+

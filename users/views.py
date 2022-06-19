@@ -1,10 +1,9 @@
 from django.shortcuts import render,redirect, HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from .forms import Regform,updatename
+from .forms import RegistrationForm,ProfileForm,UpdateProfile
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from .forms import *
 from .models import *
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
@@ -12,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 
 def register(request):
 	if request.method == 'POST':
-		form = Regform(request.POST)
+		form = RegistraionForm(request.POST)
 		if form.is_valid():
 			name= form.cleaned_data.get('first_name')
 			user = form.cleaned_data.get('username')
@@ -51,12 +50,18 @@ def loggedout(request):
 
 @login_required
 def updateprofile(request):
-	form = profileform(instance=request.user.profile)
+	form = ProfileForm(instance=request.user.profile)
 	if request.method == 'POST':
-		form = profileform(request.POST,request.FILES,instance=request.user.profile)
-		form.save()
-		return redirect('profile')
+		form = ProfileForm(request.POST,request.FILES,instance=request.user.profile)
+		if form.is_valid():
+			form.save()
+			return redirect('profile')
+		else:
+			messages.error(request,f"please fill data correctly")
 	context = {
 		'form' : form
 	}
 	return render(request, 'users/update.html', context)
+
+
+	

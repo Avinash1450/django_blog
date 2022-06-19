@@ -9,8 +9,13 @@ class Blogpost(models.Model):
 	content = models.TextField(max_length=500)
 	date = models.DateField(auto_now_add=True)
 
+	class Meta:
+		ordering = ['blog_id']
+
 
 	def __str__(self):
 		return self.title
+
+
 
 

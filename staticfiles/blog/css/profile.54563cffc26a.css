@@ -1,0 +1,78 @@
+ body{
+            margin: 0%;
+            padding: 0%;
+            /* background: rgb(230, 240, 243); */
+        }
+        .profilecontainer{
+            display: flex;
+            justify-content: center;
+            /*align-items: center;*/
+            margin: 0.5% auto;
+        }
+        .box-profile{
+            background-color: rgb(81, 192, 174);
+            margin: 0.5%;
+            padding: 1%;
+            border: 1px solid black;
+            border-radius: 1.5%;
+            width: 40vw;
+        }
+        .upper-profile{
+            display: flex; 
+            flex-direction: row;      
+        }
+        .profilepic{
+            width: 18vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profiledetails{
+            padding: 2%;
+            font-weight:500;
+            width: 22vw;
+            text-align: center;
+            line-height: 0.7; 
+        }
+        .userposts{
+            padding: 2%;
+            margin: 1%;
+            width: 40vw;
+        }
+        img{
+            width: 10vw;
+            height: auto;
+            border: 1px solid black;
+            border-radius: 50%;
+        }
+        .title,.subtitle{
+            font-weight: bold;
+            line-height: 0.5;
+        }
+        .btn{
+            color: black;
+            padding: 5px 5px;
+            font-size: 11px;
+            font-weight:bold;
+            border-radius: 8px;
+            border: 2px solid black;
+        }
+        .btn:hover{
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+@media only screen and (max-width: 850px){
+    .upper-profile{
+        height: fit-content;
+        flex-direction: column;
+        align-items: center;
+    }
+    img{
+        margin-top: 5%;
+    }
+    .about{
+        line-height: 1;
+    }
+
+}

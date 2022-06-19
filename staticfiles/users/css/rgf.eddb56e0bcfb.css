@@ -1,0 +1,45 @@
+.rgmain{
+	margin: 1% 0;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.rgcontainer{
+	border: 1px solid black;
+	border-radius: initial;
+	display: flex;
+	flex-direction: column;
+	width: 45vw;
+	background-color: rgb(81, 192, 174);
+}
+.outerbtn{
+	margin: 1% 0;
+}
+.rgcontainer li{
+	margin: 1%;
+}
+.regform form{
+	margin: 0% 1%;
+	padding: 2% 2%;
+}
+form input{
+	color: black;
+}
+.leg{
+	text-align: center;
+	font-weight: bolder;
+	font-size: 2rem;
+}
+.btn{
+	color: black;
+	padding: 5px 5px;
+	font-size: 11px;
+	font-weight:bold;
+	border-radius: 8px;
+	border: 2px solid black;
+}
+.btn:hover{
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.1);
+}

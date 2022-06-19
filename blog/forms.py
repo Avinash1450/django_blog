@@ -7,3 +7,7 @@ class Postform(forms.ModelForm):
 	class Meta:
 		model = Blogpost
 		fields = ['blog_id','title','sub_title','content','user']
+
+
+
+		

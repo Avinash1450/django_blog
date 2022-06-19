@@ -8,23 +8,14 @@ from django.contrib.auth.decorators import login_required
 from .decorators import user_logged_in
 from django.core.paginator import Paginator
 from datetime import date,timedelta
-
+from django.contrib.auth import login
 
 # Create your views here.
-def homep(request):
-
-
+def home(request):
 	page_number = request.GET.get('page')
 	if page_number is None:
 		page_number = 1
-
-	if request.method == "POST":
-		title = request.POST.get("title")
-		blogs = Blogpost.objects.filter(title__icontains=title).all()
-
-	else:
-		blogs = Blogpost.objects.all().order_by('-date')
-	
+	blogs = Blogpost.objects.all().order_by('-date')
 	paginator = Paginator(blogs, 3)
 	page_obj = paginator.get_page(page_number)
 	context = {
@@ -32,6 +23,7 @@ def homep(request):
 	}
 	return render(request, 'blog/home.html',context)
 
+@login_required
 def profile(request):
 	user=request.user 
 	posts = user.blogpost_set.all() 
@@ -97,20 +89,61 @@ def search(request,search):
 	if page_number is None:
 		page_number = 1
 	
-	if search == "most recent":
-		filter_date = date.today() - timedelta(days=3)
-		blog = Blogpost.objects.filter(date__gte = filter_date)
-	elif search == "last week":
-		exclude_date = date.today() - timedelta(days=date.today().day)
-		blog = Blogpost.objects.filter(date__gt = exclude_date)
-	else:
-		t = date.today()
-		last_month_first_day = date(t.year,t.month-1,1)
-		last_month_last_day = date(t.year,t.month,1) - timedelta(days=1)
-		blog = Blogpost.objects.filter(date__gte = last_month_last_day).exclude(date__gte = last_month_last_day)
-	paginator = Paginator(blog, 2)
-	page_obj = paginator.get_page(page_number)
+		if search == "most recent":
+			try:
+				filter_date = date.today() - timedelta(days=3)
+				blog = Blogpost.objects.filter(date__gte = filter_date)
+				if blog.exists() is False:
+					raise ValueError ("no such posts")
+			except:
+				messages.error(request,'NO POSTS IN LAST FEW DAYS')
+				return redirect('bloghome')
+		elif search == "last week":
+			try:
+				exclude_date = date.today() - timedelta(days=7)
+				blog = Blogpost.objects.filter(date__gt = exclude_date)
+				if blog.exists() is False:
+					raise ValueError ("no such posts")
+			except:
+				messages.error(request,"NO POSTS IN LAST WEEK")
+				return redirect('bloghome')
+		else:
+			try:
+				t = date.today()
+				last_month_first_day = date(t.year,t.month-1,1)
+				last_month_last_day = date(t.year,t.month,1) - timedelta(days=1)
+				blog = Blogpost.objects.filter(date__range=(last_month_first_day, last_month_last_day))
+				if blog.exists() is False:
+					raise ValueError ("no such posts")
+			except:
+				messages.error(request,"NO POSTS IN LAST MONTH")
+				return redirect('bloghome')
+		paginator = Paginator(blog, 2)
+		page_obj = paginator.get_page(page_number)
 	context = {
 		'page_obj' : page_obj
 	}
 	return render(request, 'blog/home.html',context)
+
+
+def search_box(request):
+	page_number = request.GET.get('page')
+	if page_number is None:
+		page_number = 1
+	if request.GET.get('title'):
+		word = request.GET.get('title')
+		try:
+			blog = Blogpost.objects.filter(title__icontains = word).all()
+			if blog.exists() is False:
+				raise ValueError('no such posts')
+			paginator = Paginator(blog,5)
+		except:
+			messages.error(request,f'NO POSTS EXISTS FOR KEYWORD {word}')
+			return redirect('bloghome')	
+		page_obj = paginator.get_page(page_number)
+		context = { 'page_obj' : page_obj }
+		return render(request, 'blog/home.html', context)
+	else:
+		return redirect('bloghome')
+
+

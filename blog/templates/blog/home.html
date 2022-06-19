@@ -8,8 +8,14 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="outermain">
+    {% if messages %}
+        {% for message in messages %}
+        <div style="text-align: center;">
+            <h2 style="color: black;">{{message}}</h2>
+        </div>
+        {% endfor %}
+    {% endif %}
 {% for blog in page_obj %}
 <div class="main">      
         <div class="container">
@@ -50,6 +56,4 @@
     <div class="next"><a class="pagelink" href="?page={{ page_obj.next_page_number }}">&rarr;</a></div>
     {% endif %}
 </div>
-
-
 {% endblock %}
