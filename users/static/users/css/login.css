@@ -37,10 +37,10 @@ a{
 	padding: 5px 5px;
 	font-size: 11px;
 	font-weight:bold;
-	border-radius: 8px;
-	border: 2px solid black;
+	border-radius: 6px;
+	border: 1px solid black;
 }
 .btn:hover{
 	cursor: pointer;
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgb(200, 200, 200);
 }

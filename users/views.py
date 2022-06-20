@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect, HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from .forms import RegistrationForm,ProfileForm,UpdateProfile
+from .forms import RegistrationForm,ProfileForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -11,20 +11,19 @@ from django.contrib.auth.decorators import login_required
 
 def register(request):
 	if request.method == 'POST':
-		form = RegistraionForm(request.POST)
+		form = RegistrationForm(request.POST)
 		if form.is_valid():
-			name= form.cleaned_data.get('first_name')
-			user = form.cleaned_data.get('username')
+			username = form.cleaned_data.get('username')
 			pass1 = form.cleaned_data.get('password1')
 			form.save()
-			user = authenticate(username=user, password=pass1)
+			user = authenticate(username=username, password=pass1)
 			login(request,user)
-			messages.success(request, f"you are succesfully registered {name.upper()}")
+			messages.success(request, f"you are succesfully registered {username.upper()}")
 			return redirect("profile")
 		else:
 			for msg in form.errors:
 				messages.error(request,form.errors.get(msg))
-	form = Regform()
+	form = RegistrationForm()
 	return render(request,'users/registration.html',{ 'form' : form })
 
 

@@ -2,7 +2,7 @@ import pytest
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth.models import AnonymousUser
-from users.forms import profileform
+from users.forms import *
 
 @pytest.mark.django_db
 def test_register_GET(client):
@@ -17,8 +17,6 @@ def test_register_GET(client):
 def test_register_POST_right_data(client):
 	payload = {
 		'username' : 'avi',
-		'first_name' : 'avinash',
-		'last_name' : 'yadav',
 		'email' : 'avinash@yadav.com',
 		'password1' : '1qaz2wsz',
 		'password2' : '1qaz2wsz'
@@ -108,6 +106,8 @@ def test_updateprofile_GET_user_loggedin(client,test_user):
 @pytest.mark.django_db
 def test_updateprofile_POST_right_credentials(client,test_user):
 	credentials = {
+		"first_name" : "abc",
+		"last_name" : "def",
 		"age" : 22,
 		"about" : "anything",
 		"state" : "Bihar",

@@ -8,6 +8,8 @@ from PIL import Image
 
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	first_name = models.CharField(max_length=50,default="first name")
+	last_name = models.CharField(max_length=50, default="last name")
 	age = models.CharField(max_length=2,default="age")
 	about = models.CharField(max_length=50, default="about me")
 	state = models.CharField(max_length=20,default="state")

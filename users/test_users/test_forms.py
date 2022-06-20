@@ -8,8 +8,6 @@ def test_registrationform_empty_form():
 	form = RegistrationForm()
 
 	assert ("username" in [t for t in form.fields])
-	assert ("first_name" in [t for t in form.fields])
-	assert ("last_name" in [t for t in form.fields])
 	assert ("email" in [t for t in form.fields])
 	assert ("password1" in [t for t in form.fields])
 	assert ("password2" in [t for t in form.fields])
@@ -20,8 +18,6 @@ def test_registrationform_filled_form():
 
 	data = {
 	'username' : 'avi',
-	'first_name' : 'avinash',
-	'last_name' : 'yadav',
 	'email' : 'a@y.com',
 	'password1' : '1qaz1234',
 	'password2' : '1qaz1234'
@@ -40,6 +36,8 @@ def test_profileform_empty_form():
 
 	form = ProfileForm()
 
+	assert ("first_name" in [t for t in form.fields])
+	assert ("last_name" in [t for t in form.fields])
 	assert ("age" in [t for t in form.fields])
 	assert ("state" in [t for t in form.fields])
 	assert ("about" in [t for t in form.fields])
@@ -50,6 +48,8 @@ def test_profileform_empty_form():
 def test_profileform_filled_form(test_user):
 	
 	data = {
+	'first_name' : 'avinash',
+	'last_name' : 'yadav',
 	'age' : '25',
 	'about' : 'nothing',
 	'state' : 'bihar',
