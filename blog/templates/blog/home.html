@@ -4,7 +4,7 @@
 {% block css %}
 
    
- <link rel="stylesheet" type="text/css" href="{% static  'blog/css/home.css' %} ">
+ <link rel="stylesheet" type="text/css" href="{% static  'blog/css/home.css' %}?{% now 'U' %}">
 
 {% endblock %}
 
@@ -13,7 +13,7 @@
     {% if messages %}
         {% for message in messages %}
         <div style="text-align: center;">
-            <h2 style="color: black;">{{message}}</h2>
+            <h2 class="message-class" style="color: black;">{{message}}</h2>
         </div>
         {% endfor %}
     {% endif %}
@@ -23,18 +23,22 @@
             <div class="upper-wrapper">
                 <div class="userimage">
                 <a href="{% url 'userprofile' blog.user.username %}"><img src={{ blog.user.profile.image.url }}></a>
-                </div>
-            <div class="lower-wrapper">     
+             </div>
+                <div class="lower-wrapper">     
                 <div class="title"><span>{{ blog.title }}</span></div>
                 <div class="subtitle"><p>{{ blog.sub_title}}</p></div>
                 </div>
             </div>
-            <div class="content"><p>{{ blog.content }}</p></div>
-        <div class="userdetail">
+            <a href="{% url 'post' blog.blog_id %}"><div class="content"><p>{{ blog.content|truncatewords:15 }}</p></div>
+            </a>
+       <!--  <div class="userdetail">
             <p>posted by:-<a href="{% url 'userprofile' blog.user.username %}">{{ blog.user }}</a></p>
-            <p>{{ blog.date }}</p>
-        </div>
-    </div> 
+            <p>{{ blog.date }}</p></div> -->
+            <div class="bottom-wrapper">
+            <a href=""><div class="like">like</div></a>
+            <a href=""></a><div class="comment">comment</div></a>
+            </div>
+    </div>
 </div>
 
 {% endfor %}
@@ -46,6 +50,7 @@
         <a href="{% url 'search' 'most recent' %}">most recent</a>
         <a href="{% url 'search' 'last week' %}">last week</a>
         <a href="{% url 'search' 'last month' %}">last month</a>
+        <a href="{% url 'users-list' %}">SEE ALL USERS</a>
     </div>
 </div>
 

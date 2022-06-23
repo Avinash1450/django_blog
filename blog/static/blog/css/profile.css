@@ -35,8 +35,8 @@
             line-height: 0.7; 
         }
         .userposts{
-            padding: 2%;
-            margin: 1%;
+            padding: 1%;
+            margin: 0.5%;
             width: 40vw;
         }
         img{
@@ -72,6 +72,9 @@
         margin-top: 5%;
     }
     .about{
+        line-height: 1;
+    }
+    .title,.subtitle{
         line-height: 1;
     }
 

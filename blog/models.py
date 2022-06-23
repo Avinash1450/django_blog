@@ -17,5 +17,10 @@ class Blogpost(models.Model):
 		return self.title
 
 
+class LikeModel(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	blog = models.ForeignKey(Blogpost, on_delete=models.CASCADE)
 
+	def __str__(self):
+		return f"liked {self.blog}"
 

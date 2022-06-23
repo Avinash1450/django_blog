@@ -1,0 +1,53 @@
+{% extends 'blog/home.html' %}
+{% load static %}
+{% block css%}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/userlist.css'%}">
+
+{% endblock %}
+{% block content %}
+
+{% if post_list %}
+<div class="main">   
+  <div class="container">
+    <div class="upper-wrapper">
+        <div class="upper-wrapper">USER AND THEIR BLOGS</div>
+        <!-- <div>No. of blogs</div> -->
+    </div>
+    {% for i in post_list %}
+    <a href="{% url 'userprofile' i.0 %}">
+      <div class="wrapper">
+        <div class="user-name">{{ i.0 }}</div>
+        <div class="arrow">---></div>
+        <div class="posts">{{ i.1 }}</div>
+      </div></a>
+    {% endfor %} 
+  </div>
+</div>
+{% else %}
+
+<div class="main">   
+    <div class="container">
+        <div class="upper-wrapper">
+                <div class="userimage">
+                <a href="{% url 'userprofile' post.user.username %}"><img src={{ post.user.profile.image.url }}></a>
+                </div>   
+                <div class="lower-wrapper">     
+                <div class="title"><span>{{ post.title }}</span></div>
+                <div class="subtitle"><p>{{ post.sub_title}}</p></div>
+                </div>
+            </div>
+            <div class="content"><p>{{ post.content }}</p></div>
+        <div class="userdetail">
+            <p>posted by:-<a href="{% url 'userprofile' post.user.username %}">{{ post.user }}</a></p>
+            <p>{{ post.date }}</p>
+        </div>
+          <div class="bottom-wrapper">
+            <a href=""><div class="like">like</div></a>
+            <a href=""><div class="comment">comment</div></a>
+          </div>
+    </div> 
+</div>
+
+{% endif %}
+{% endblock %}

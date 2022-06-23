@@ -147,3 +147,13 @@ def search_box(request):
 		return redirect('bloghome')
 
 
+def users_list(request):
+	user_list = User.objects.all()
+	post_list = [ [t.username, t.blogpost_set.all().count()] for t in user_list ]
+	print(post_list)
+	context = { 'post_list' : post_list }
+	return render(request, 'blog/user_list.html', context)
+
+def post_with_id(request,postid):
+	post = Blogpost.objects.get(blog_id=postid)
+	return render(request, 'blog/user_list.html',{ 'post' : post})
