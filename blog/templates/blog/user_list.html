@@ -3,6 +3,7 @@
 {% block css%}
 
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/userlist.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/home.css'%}">
 
 {% endblock %}
 {% block content %}
@@ -43,9 +44,13 @@
             <p>{{ post.date }}</p>
         </div>
           <div class="bottom-wrapper">
-            <a href=""><div class="like">like</div></a>
-            <a href=""><div class="comment">comment</div></a>
-          </div>
+            <div class="likelike" >{{ post.likes }} likes</div>
+                {% if post in liked_blogs %}
+                    <a class="likelike" href="{% url 'unlike-post' post.blog_id %}"><div class="like">unlike</div></a>
+                {% else %}
+           <a class="likelike" href="{% url 'like-post' post.blog_id %}"><div class="like">like</div></a>
+            {% endif %}
+     
     </div> 
 </div>
 

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import Blogpost
+from .models import Blogpost,Preferences
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from .decorators import user_logged_in
@@ -18,9 +18,16 @@ def home(request):
 	blogs = Blogpost.objects.all().order_by('-date')
 	paginator = Paginator(blogs, 3)
 	page_obj = paginator.get_page(page_number)
+	if request.user.username:
+		liked_blogs = request.user.preferences_set.all()
+		liked_blogs = [b.blog for b in liked_blogs]
+	else:
+		liked_blogs = ''
 	context = {
-		'page_obj' : page_obj
+		'page_obj' : page_obj,
+		'liked_blogs' : liked_blogs
 	}
+	print(liked_blogs)
 	return render(request, 'blog/home.html',context)
 
 @login_required
@@ -150,10 +157,35 @@ def search_box(request):
 def users_list(request):
 	user_list = User.objects.all()
 	post_list = [ [t.username, t.blogpost_set.all().count()] for t in user_list ]
-	print(post_list)
 	context = { 'post_list' : post_list }
 	return render(request, 'blog/user_list.html', context)
 
 def post_with_id(request,postid):
 	post = Blogpost.objects.get(blog_id=postid)
-	return render(request, 'blog/user_list.html',{ 'post' : post})
+	if request.user.username:
+		liked_blogs = request.user.preferences_set.all()
+		liked_blogs = [b.blog for b in liked_blogs]
+	else:
+		liked_blogs = ''
+	context = {
+		'post' : post,
+		'liked_blogs' : liked_blogs
+	}
+	return render(request, 'blog/user_list.html',context)
+
+@user_logged_in
+def like_post(request,postid):
+	blog = Blogpost.objects.get(blog_id=postid)
+	p = Preferences(user=request.user,blog=blog,value=1)
+	p.save()
+	return redirect('bloghome')
+
+@user_logged_in
+def unlike_post(request,postid):
+	user = request.user
+	p = Preferences.objects.filter(user=user).get(blog__blog_id=postid)
+	p.delete()
+	return redirect('bloghome')
+
+
+

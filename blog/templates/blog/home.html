@@ -34,10 +34,14 @@
        <!--  <div class="userdetail">
             <p>posted by:-<a href="{% url 'userprofile' blog.user.username %}">{{ blog.user }}</a></p>
             <p>{{ blog.date }}</p></div> -->
-            <div class="bottom-wrapper">
-            <a href=""><div class="like">like</div></a>
-            <a href=""></a><div class="comment">comment</div></a>
-            </div>
+        <div class="bottom-wrapper">
+            <span class="likelike" >{{ blog.likes }}  likes</span>
+                {% if blog in liked_blogs %}
+                    <a class="likelike" href="{% url 'unlike-post' blog.blog_id %}"><div class="like">dislike</div></a>
+                {% else %}
+                    <a class="likelike" href="{% url 'like-post' blog.blog_id %}"><div class="like">like</div></a>
+            {% endif %}
+        </div>
     </div>
 </div>
 
