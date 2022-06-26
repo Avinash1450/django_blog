@@ -1,0 +1,14 @@
+.bottom-wrapper{
+	display: flex;
+	justify-content: flex-start;
+	font-size: 1rem;
+}
+
+.like-wrapper{
+	margin: 0.5%;
+}
+.likelike{
+	margin: 0.5%;
+	color: black;
+}
+
