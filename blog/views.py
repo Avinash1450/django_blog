@@ -160,6 +160,7 @@ def users_list(request):
 	context = { 'post_list' : post_list }
 	return render(request, 'blog/user_list.html', context)
 
+
 def post_with_id(request,postid):
 	post = Blogpost.objects.get(blog_id=postid)
 	if request.user.username:
@@ -173,14 +174,14 @@ def post_with_id(request,postid):
 	}
 	return render(request, 'blog/user_list.html',context)
 
-@user_logged_in
+@login_required(login_url='/user/login/')
 def like_post(request,postid):
 	blog = Blogpost.objects.get(blog_id=postid)
 	p = Preferences(user=request.user,blog=blog,value=1)
 	p.save()
 	return redirect('bloghome')
 
-@user_logged_in
+@login_required(login_url='/user/login/')
 def unlike_post(request,postid):
 	user = request.user
 	p = Preferences.objects.filter(user=user).get(blog__blog_id=postid)
