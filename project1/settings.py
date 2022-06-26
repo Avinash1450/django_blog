@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import dj_database_url
 import django_heroku
 
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 
 from pathlib import Path
 
@@ -32,9 +32,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 
-load_dotenv(find_dotenv())
+load_dotenv()
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
