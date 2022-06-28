@@ -205,13 +205,16 @@ img{
 .bottom-wrapper{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 1rem;
     border-top: 0.2px solid whitesmoke;
 }
 
 .like{
     /*padding-left: 30%;*/
-    margin-left: 100%;
+    margin-left: 10px;
+    color: black;
+    font-size: 16px;
 }
 
 .comment{
@@ -339,5 +342,11 @@ img{
     .sidebar a span{
         font-size: 8px;
         font-weight: bold;
+    }
+    .likelike a span{
+        font-size: 5px;
+    }
+    .like{
+        font-size: 10px;
     }
 }

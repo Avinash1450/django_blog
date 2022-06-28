@@ -11,7 +11,7 @@
         }
         .box-profile{
             background-color: rgb(81, 192, 174);
-            margin: 0.5%;
+            /*margin: 0.5%;*/
             padding: 1%;
             border: 1px solid black;
             border-radius: 1.5%;
@@ -19,20 +19,27 @@
         }
         .upper-profile{
             display: flex; 
-            flex-direction: row;      
+            flex-direction: row;
+            margin-bottom: 1%;      
         }
         .profilepic{
             width: 18vw;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 30%;
+            padding: 4%;
+        }
+        .name span{
+            font-size: 15px;
         }
         .profiledetails{
+            height: 70%;
             padding: 2%;
             font-weight:500;
             width: 22vw;
             text-align: center;
-            line-height: 0.7; 
+            line-height: 0.2; 
         }
         .userposts{
             padding: 1%;
@@ -47,7 +54,7 @@
         }
         .title,.subtitle{
             font-weight: bold;
-            line-height: 0.5;
+            line-height: 0.3;
         }
         .btn{
             color: black;
@@ -60,6 +67,9 @@
         .btn:hover{
             cursor: pointer;
             background-color: rgb(200, 200, 200);
+        }
+        .pro-det{
+            line-height: 0.1;
         }
 
 @media only screen and (max-width: 850px){
@@ -75,7 +85,22 @@
         line-height: 1;
     }
     .title,.subtitle{
-        line-height: 1;
+        line-height: 0.3;
+    }
+    .profiledetails{
+        line-height: 0.4;
+    }
+    .btn{
+        font-size: 8px;
+        padding: 3px;
+        margin: 2px 0;
+    }
+    .userposts{
+        margin: 0 0.2%;
+        padding: 0.5%;
+    }
+    .pro-det{
+        font-size: 10px;
     }
 
 }

@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/profile.css' %}?{% now "U" %}">
 {% endblock %}
 
+
 {% block content %}
     {% csrf_token %}
     {% if messages %}
@@ -30,10 +31,10 @@
         <div class="upper-profile">
         <div class="profilepic"><img src="{{ request.user.profile.image.url }}" alt="img"></div>
         <div class="profiledetails">
-            <div class="name"><h2>{{ request.user.username }}</h2></div>
-            <div class="age"><p>{{ request.user.profile.age }}</p></div>
-            <div class="state"><p>{{ request.user.profile.state }}</p></div>
-            <div class="about"><p>{{ request.user.profile.about }}</p></div>
+            <div class="name"><span>{{ request.user.username }}</span></div>
+            <div class="pro-det"><p>{{ request.user.profile.age }}</p></div>
+            <div class="pro-det"><p>{{ request.user.profile.state }}</p></div>
+            <div class="pro-det"><p>{{ request.user.profile.about }}</p></div>
             <a href="{% url 'updateprofile' %}"><button class="btn">UPDATE</button></a>
         </div>
         </div>

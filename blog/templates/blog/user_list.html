@@ -40,18 +40,17 @@
             </div>
             <div class="content"><p>{{ post.content }}</p></div>
         <div class="userdetail">
-            <p>posted by:-<a href="{% url 'userprofile' post.user.username %}">{{ post.user }}</a></p>
-            <p>{{ post.date }}</p>
+            <span>posted by:-<a href="{% url 'userprofile' post.user.username %}">{{ post.user }}</a></span>
+            <span>{{ post.date }}</span>
         </div>
           <div class="bottom-wrapper">
-            <div class="likelike" >{{ post.likes }} likes</div>
+            <span class="likelike" ><span class="like">{{ post.likes }} likes</span></span>
                 {% if post in liked_blogs %}
-                    <a class="likelike" href="{% url 'unlike-post' post.blog_id %}"><div class="like">unlike</div></a>
+                    <a href="{% url 'unlike-post' post.blog_id %}"><div class="like"><span>dislike</span></div></a>
                 {% else %}
-           <a class="likelike" href="{% url 'like-post' post.blog_id %}"><div class="like">like</div></a>
+                    <a href="{% url 'like-post' post.blog_id %}"><div class="like"><span>like</span></div></a>
             {% endif %}
-     
-    </div> 
+        </div>
 </div>
 
 {% endif %}
