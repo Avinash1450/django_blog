@@ -13,7 +13,7 @@
     {% if messages %}
         {% for message in messages %}
         <div style="text-align: center;">
-            <h2 class="message-class" style="color: black;">{{message}}</h2>
+            <h2 class="message-class">{{message}}</h2>
         </div>
         {% endfor %}
     {% endif %}
@@ -51,10 +51,10 @@
 
 <div class="sidebar">
     <div class="link">
-        <a href="{% url 'search' 'most recent' %}">most recent</a>
-        <a href="{% url 'search' 'last week' %}">last week</a>
-        <a href="{% url 'search' 'last month' %}">last month</a>
-        <a href="{% url 'users-list' %}">SEE ALL USERS</a>
+        <a href="{% url 'search' 'most recent' %}"><span>most recent</span></a>
+        <a href="{% url 'search' 'last week' %}"><span>last week</span></a>
+        <a href="{% url 'search' 'last month' %}"><span>last month</span></a>
+        <a href="{% url 'users-list' %}"><span>all users</span></a>
     </div>
 </div>
 

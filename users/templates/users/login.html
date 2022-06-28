@@ -3,6 +3,8 @@
 {% load static %}
 {% block css %}
 
+ <link rel="stylesheet" type="text/css" href="{% static 'blog/css/base.css' %}?{% now 'U' %}">
+
 <link rel="stylesheet" type="text/css" href="{% static 'users/css/login.css' %}">
 
 {% endblock%}
@@ -17,7 +19,7 @@
 
 		{% for message in messages %}
 
-			{{ message }}
+			<span>{{ message }}</span>
 
 		{% endfor %}
 
@@ -39,7 +41,7 @@
 	</div>
 </form>
 	<div>
-		<span>Not registered?<a href="{% url 'register' %}">Join Now</a></span>
+		<span>Not registered?<a href="{% url 'register' %}"><span class="join">Join Now</span></a></span>
 	</div>
 	{% else %}
 	<div class="inputtags">

@@ -18,7 +18,7 @@
 <body>
     <div class="nav">
     <div class="upper">
-    <div class="header"><span>YourBlog</span></div>
+    <div class="header"><span class="nav-title">YourBlog</span></div>
     <div class="onsmall" id="onsmall">
     <div class="coversmall fa fas-bar" id="hamburger">
         <div class="line"></div>
@@ -43,7 +43,7 @@
         <div class="searchbar">
             <form method="GET" action="{% url 'search_box' %}">
                 <input type="text" placeholder="search a post" name="title">
-                <button  type="submit" name="search">search</button>
+                <button  class="btn" type="submit" name="search">search</button>
             </form>
         </div>
     </div>

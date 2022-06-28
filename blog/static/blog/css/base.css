@@ -219,6 +219,9 @@ img{
     margin-right: 5%;
 }
 
+.message-class{
+    color: black;
+}
 
 @media only screen and (max-width: 850px){
     .nav{
@@ -312,7 +315,29 @@ img{
     .responsive{ 
         display: flex;
     }
-    .sidebar{
-        top: 45%;
+    .sidebar {
+        font-size: 10px;
+        top: 15%;
+        height: 100px;
+    }
+    .message-class{
+        font-size: 12px;
+    }
+    .header{
+        font-size: 15px;
+    }
+    .nav-title{
+        font-size: 15px;
+    }
+    .searchbar input{
+        font-size: 10px;
+    }
+    .sidebar a{
+        padding: 1px;
+        margin: 1px;
+    }
+    .sidebar a span{
+        font-size: 8px;
+        font-weight: bold;
     }
 }
