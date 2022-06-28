@@ -10,7 +10,7 @@ class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	first_name = models.CharField(max_length=50,default="first name")
 	last_name = models.CharField(max_length=50, default="last name")
-	age = models.CharField(max_length=2,default="age")
+	age = models.IntegerField(default="age")
 	about = models.CharField(max_length=50, default="about me")
 	state = models.CharField(max_length=20,default="state")
 	image = models.ImageField(default='profile_pics/default.jpg', upload_to='profile_pics',max_length=500)
