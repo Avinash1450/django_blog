@@ -13,7 +13,7 @@ class Profile(models.Model):
 	age = models.CharField(max_length=2,default="age")
 	about = models.CharField(max_length=50, default="about me")
 	state = models.CharField(max_length=20,default="state")
-	image = models.ImageField(default='profile_pics/default.jpg', upload_to='profile_pics',**max_length=500**)
+	image = models.ImageField(default='profile_pics/default.jpg', upload_to='profile_pics',max_length=500)
 
 	def __str__(self):
 		return f"{self.user} Profile"
