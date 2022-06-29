@@ -83,10 +83,10 @@ body{
 .subtitle{
     font-weight: bold;
     font-size: 1vw;
-    line-height: 0.5;
+    line-height: 0.8;
 }
 .content{
-    margin: 0 5%;
+    margin: 0 3%;
     font-size: 1.5vw;
     color: whitesmoke;
 }
@@ -98,7 +98,7 @@ body{
     text-justify: distribute-all-lines;
     text-align: justify;        
 }
-.content a p:hover{
+.content p:hover{
     color: grey;
 }
 
@@ -156,23 +156,11 @@ img{
 }
 
 .sidebar{
-    border: 1px solid black;
-    width: 25%;
-    height: 200px;
-    display: inline-block;
-    position: absolute;
-    left: 73%;
-    top: 45%;
-    color: black;
-    font-weight: bolder;
-    font-size: 15px;
-    background-color:rgb(81, 192, 174);
-
+   height: 10vh;
 }
 
 .link{
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     height: 100%;
@@ -180,7 +168,10 @@ img{
 
 }
 .sidebar a{
-    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
     padding: 5px;
     border: 1px solid whitesmoke;
 }
@@ -232,7 +223,7 @@ img{
     .nav{
     height: 30%;
     line-height: 1.5;
-    font-size: 2.5vw;
+    font-size: 0.8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -294,7 +285,8 @@ img{
         margin: 2% 0;
     }
     .container{
-        width: 40%;
+        width: 70%;
+        height: auto;
         margin: 0 1%;
         display: flex;
         flex-direction: column;
@@ -307,7 +299,7 @@ img{
     }
     .content{
         font-size: 3vw;
-        margin:0 15%;
+        margin:0 1%;
         text-align: justify;
     
     }
@@ -323,7 +315,7 @@ img{
     .sidebar {
         font-size: 10px;
         top: 15%;
-        height: 100px;
+        height: 30px;
     }
     .message-class{
         font-size: 12px;
@@ -338,11 +330,11 @@ img{
         font-size: 10px;
     }
     .sidebar a{
-        padding: 1px;
-        margin: 1px;
+        padding: 0.5px;
+        margin: 0.5px;
     }
     .sidebar a span{
-        font-size: 8px;
+        font-size: 7px;
         font-weight: bold;
     }
     .likelike a span{
@@ -350,5 +342,8 @@ img{
     }
     .like{
         font-size: 10px;
+    }
+    .userimage{
+        width: 30px;
     }
 }

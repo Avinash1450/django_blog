@@ -84,6 +84,9 @@
         flex-direction: column;
         align-items: center;
     }
+    .box-profile{
+        width: 70%;
+    }
     img{
         margin-top: 2%;
     }
@@ -119,6 +122,9 @@
     }
     .pro-det{
         font-size: 1rem;
+    }
+    .age,.state,.about{
+        line-height: 0.9;
     }
 
 }

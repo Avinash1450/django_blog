@@ -57,4 +57,7 @@ form input{
 	.btn{
 		font-size: 10px;
 	}
+	.rgcontainer{
+		width: 70%;
+	}
 }

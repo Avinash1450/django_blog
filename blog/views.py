@@ -42,6 +42,8 @@ def profile(request):
 
 def userprofile(request,name):
 	user = User.objects.get(username=name)
+	if request.user == user:
+		return redirect('profile')
 	posts = user.blogpost_set.all()
 	context = {
 		'user' : user,
