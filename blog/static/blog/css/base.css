@@ -98,7 +98,9 @@ body{
     text-justify: distribute-all-lines;
     text-align: justify;        
 }
-
+.content a p:hover{
+    color: grey;
+}
 
 .onsmall{
     display: none;

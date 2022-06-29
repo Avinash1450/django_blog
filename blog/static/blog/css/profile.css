@@ -30,16 +30,22 @@
             height: 30%;
             padding: 4%;
         }
+        .name{
+            margin: 10px;
+        }
         .name span{
-            font-size: 15px;
+            font-size: 2.5rem;
+            color: black;
         }
         .profiledetails{
-            height: 70%;
+            height: 150%;
+            margin-top: 4%;
             padding: 2%;
             font-weight:500;
-            width: 22vw;
+            font-size: 20px;
+            width: 45vw;
             text-align: center;
-            line-height: 0.2; 
+            line-height: 1; 
         }
         .userposts{
             padding: 1%;
@@ -79,16 +85,28 @@
         align-items: center;
     }
     img{
-        margin-top: 5%;
+        margin-top: 2%;
+    }
+    .profilepic{
+        padding: 1%;
     }
     .about{
-        line-height: 1;
+        line-height: 0.7;
     }
     .title,.subtitle{
         line-height: 0.3;
     }
+    .name span{
+        font-size: 1rem;
+        line-height: 0.1;
+    }
+    .name{
+        margin: 5px;
+    }
     .profiledetails{
-        line-height: 0.4;
+        line-height: 0.8;
+        font-size: 10px;
+        width: 100%;
     }
     .btn{
         font-size: 8px;
@@ -100,7 +118,7 @@
         padding: 0.5%;
     }
     .pro-det{
-        font-size: 10px;
+        font-size: 1rem;
     }
 
 }

@@ -7,18 +7,16 @@
 
 {% block content %}
     {% csrf_token %}
-    {% if messages %}
 
-    {% endif %}
     <div class="profilecontainer">
     <div class="box-profile">
         <div class="upper-profile">
         <div class="profilepic"><img src="{{ user.profile.image.url }}" alt="img"></div>
         <div class="profiledetails">
-            <div class="name"><h2>{{ user.username }}</h2></div>
-            <div class="age"><h4>{{ user.profile.age }}</h4></div>
-            <div class="state"><h4>{{ user.profile.state }}</h4></div>
-            <div class="about"><p>{{  user.profile.about }}</p></div>
+            <div class="name"><span>{{ user.username }}</span></div>
+            <div class="age"><span>{{ user.profile.age }}</span></div>
+            <div class="state"><span>{{ user.profile.state }}</span></div>
+            <div class="about"><span>{{  user.profile.about }}</span></div>
         </div>
         </div>
         </div>

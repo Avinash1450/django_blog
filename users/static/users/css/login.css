@@ -47,6 +47,10 @@ legend{
 .join{
 	color: black;
 }
+.inputtags, .inputtagas span{
+	font-size: 20px;
+	color: black;
+}
 @media only screen and (max-width: 850px){
 	form{
 		font-size: 1opx;
@@ -67,7 +71,7 @@ legend{
 		color: black;
 	}
 	.inputtags, .inputtags span{
-		font-size: 12px;
+		font-size: 10px;
 		color: black;
 	}
 
