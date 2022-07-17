@@ -6,5 +6,8 @@ __pycache__
 
 .env
 
+media/post_pics/
+
+blog/migrations/
 
 db.sqlite3

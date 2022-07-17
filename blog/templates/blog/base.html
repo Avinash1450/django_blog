@@ -32,10 +32,10 @@
         <li class="li1"><a href="{% url 'bloghome' %}" style="text-decoration: none;color: whitesmoke;">HOME</a></li>
         {% if request.user.id is None %}
             <li class="li3"><a href="{% url 'register' %}" style="text-decoration: none;color: whitesmoke;">REGISTER</a></li>
-            <a href="{% url 'login' %}" style="text-decoration: none;color: whitesmoke;">LOGIN</a>
+            <li class="li3"><a href="{% url 'login' %}" style="text-decoration: none;color: whitesmoke;">LOGIN</a></li>
         {% else %}
-        <li class="li2"><a href="{% url 'profile' %}" style="text-decoration: none;color: whitesmoke;"><span class="nav-link">PROFILE</span></a></li>
-        <li class="li4"><a href="{% url 'loggedout' %}" style="text-decoration: none;color: whitesmoke;">LOGOUT</a></li>
+            <li class="li4"><a href="{% url 'loggedout' %}" style="text-decoration: none;color: whitesmoke;">LOGOUT</a></li>
+            <div class="li4"><a href="{% url 'profile' %}" style="text-decoration: none;color: whitesmoke;">PROFILE</a></div>
         {% endif %}
         <li class="li4"><a href="{% url 'addpost' %}" style="text-decoration: none;color: whitesmoke;">ADDPOST</a></li>
        

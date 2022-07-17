@@ -29,16 +29,18 @@
 
 <div class="main">   
     <div class="container">
-        <div class="upper-wrapper">
-                <div class="userimage">
-                <a href="{% url 'userprofile' post.user.username %}"><img src={{ post.user.profile.image.url }}></a>
-                </div>   
-                <div class="lower-wrapper">     
-                <div class="title"><span>{{ post.title }}</span></div>
-                <div class="subtitle"><p>{{ post.sub_title}}</p></div>
-                </div>
-            </div>
-            <div class="content"><p>{{ post.content }}</p></div>
+      <div class="upper-wrapper">
+        <div class="userimage">
+            <a href="{% url 'userprofile' post.user.username %}"><img class="img-wrapper" src={{ post.user.profile.image.url }}></a>    
+        </div>
+        <div class="post-title">
+            <div class="subtitle"><span>{{ post.sub_title|truncatechars:20 }}</span></div>
+        </div>
+    </div>   
+    <div class="userlist-middle">
+      <div class="userlist-image"><img src="{{ post.post_image.url }}" alt=""></div>
+      <div class="userlist-content"><span>{{ post.content }}</span></div>
+    </div>
         <div class="userdetail">
             <span>posted by:-<a href="{% url 'userprofile' post.user.username %}">{{ post.user }}</a></span>
             <span>{{ post.date }}</span>
@@ -51,6 +53,7 @@
                     <a href="{% url 'like-post' post.blog_id %}"><div class="like"><span>like</span></div></a>
             {% endif %}
         </div>
+</div>
 </div>
 
 {% endif %}

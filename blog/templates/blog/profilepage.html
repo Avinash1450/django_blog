@@ -44,16 +44,18 @@
     {% for post in posts %}
     <div class="profilecontainer">
         <div class="box-profile">
-        <div class="lower-profile">
-        <div class="userposts">
-            <div class="title"><p>{{ post.title }}</p></div>
-            <div class="subtitle"><p>{{ post.sub_title }}</p></div>
-        </div>
-        <div class="edit">
-            <a href="{% url 'updatepost' post.blog_id %}"><button class="update btn">UPDATE</button></a>
-             <a href="{% url 'deletepost' post.blog_id %}"><button class="delete btn">DELETE</button></a>
-        </div>
-        </div>
+            <div class="lower-profile">
+                <div class="userposts">
+                    <div class="subtitle"><h2>{{ post.title }}</h2></div>
+                    <div class="subtitle"><p>{{ post.sub_title }}</p></div>
+                    <div class="subtitle"><p>{{ post.content|truncatewords:13 }}</p></div>
+                </div>
+                <div class="pp-image-wrapper"><img src="{{post.post_image.url}}" alt=""></div>
+            </div>
+                <div class="edit">
+                    <a href="{% url 'updatepost' post.blog_id %}"><button class="update btn">UPDATE</button></a>
+                    <a href="{% url 'deletepost' post.blog_id %}"><button class="delete btn">DELETE</button></a>
+                </div>
         </div>
     </div>
     {% endfor %}

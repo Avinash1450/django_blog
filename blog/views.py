@@ -56,7 +56,7 @@ def userprofile(request,name):
 def addpost(request):
 	form = Postform()
 	if request.method == 'POST':
-		form = Postform(request.POST)
+		form = Postform(request.POST,request.FILES)
 		if form.is_valid():
 			form.save()
 			return redirect('profile')

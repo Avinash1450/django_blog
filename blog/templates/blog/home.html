@@ -21,10 +21,10 @@
 <div class="main">
     <div class="sidebar container">
     <div class="link">
-        <a href="{% url 'search' 'most recent' %}"><span>most recent</span></a>
-        <a href="{% url 'search' 'last week' %}"><span>last week</span></a>
-        <a href="{% url 'search' 'last month' %}"><span>last month</span></a>
-        <a href="{% url 'users-list' %}"><span>all users</span></a>
+        <a class="sd-link" href="{% url 'search' 'most recent' %}"><span class="sd-span">most recent</span></a>
+        <a class="sd-link" href="{% url 'search' 'last week' %}"><span class="sd-span">last week</span></a>
+        <a class="sd-link" href="{% url 'search' 'last month' %}"><span class="sd-span">last month</span></a>
+        <a class="sd-link" href="{% url 'users-list' %}"><span class="sd-span">all users</span></a>
     </div>
 </div>
 </div>
@@ -36,14 +36,21 @@
         <div class="container">
             <div class="upper-wrapper">
                 <div class="userimage">
-                <a href="{% url 'userprofile' blog.user.username %}"><img src={{ blog.user.profile.image.url }}></a>
-             </div>
-                <div class="lower-wrapper">     
-                <div class="title"><span>{{ blog.title }}</span></div>
-                <div class="subtitle"><p>{{ blog.sub_title}}</p></div>
-            <a href="{% url 'post' blog.blog_id %}"><div class="content"><p>{{ blog.content|truncatewords:15 }}</p></div>
-            </a></div>
-        </div>
+                    <a href="{% url 'userprofile' blog.user.username %}"><img class="img-wrapper" src={{ blog.user.profile.image.url }}></a>    
+                </div>
+                <div class="post-title">
+                    <div class="subtitle"><span>{{ blog.sub_title|truncatechars:20 }}</span></div>
+                </div>
+            </div>   
+            <div class="middle-wrapper">
+                 <div class="post-image-wrapper">
+                    <img class="post-image" src="{{ blog.post_image.url }}" alt="">
+                    <div class="title"><span>{{ blog.title|truncatechars:4 }}</span></div>
+                </div>
+                 <a class="content-wrapper" href="{% url 'post' blog.blog_id %}"><div class="content"><p>{{ blog.content|truncatewords:15 }}</p></div>
+                </a>
+            </div>
+        <!-- </div> -->
         <div class="bottom-wrapper">
             <span class="likelike" ><span class="like">{{ blog.likes }} likes</span></span>
                 {% if blog in liked_blogs %}

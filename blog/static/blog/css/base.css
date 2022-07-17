@@ -51,11 +51,50 @@ body{
 
 .main{
     margin: 1% auto;
-    text-align: center;
-    /*width: 35%;*/
+    /* text-align: center; */
+    /* width: 35%; */
     display: flex;
     justify-content: center;
 }
+
+.sidebar{
+    height: 10vh;
+ }
+ 
+ .link{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     height: 100%;
+     text-align: center;
+ 
+ }
+ 
+
+.sidebar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22%;
+    padding: 5px;
+    border: 1px solid rgb(250, 248, 248);
+}
+
+.sidebar:hover{
+    color: grey;
+}
+
+.sd-span{
+    width: 95%;
+    font-size: 15px;
+}
+
+.sd-span:hover{
+    font-size: 20px;
+    transition: 0.3s;
+}
+ 
+
 .userdetail{
     font-size: 1vw;
     padding: 0% 2%;
@@ -76,22 +115,86 @@ body{
     border: 1px solid black;
 
 }
-.title{
-    font-size: 2vw;
-    line-height: 1;
-    font-weight: bolder;
+
+.upper-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userimage{
+    flex:0.1;
+    height: auto;
+    border-radius: 50%;
+    display: inline-block;
+   
+}
+
+.img-wrapper{
+   border: 1px solid black;
+   width: 100%;
+   height: auto;
+   border-radius: 50%;
 }
 .subtitle{
     font-weight: bold;
-    font-size: 1vw;
-    line-height: 0.8;
+    font-size: 2vw;
 }
+
+
+.post-title{
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+}
+
+
+.middle-wrapper{
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+    height: 60%;
+}
+
+.post-image-wrapper{
+    flex: 0.45;
+   
+}
+
+.post-image{
+    /* padding-top: 15px; */
+    /* padding-left: 10px; */
+    width: 95%;
+    border-radius: 15px;
+}
+
+.post-image img{
+    width: 100%;
+    height: auto;
+    
+}
+
+.title{
+    font-size: 2vw;
+    font-weight: bolder;
+    position: relative;
+    bottom: 40px;
+    left: 50px;
+}
+
+.content-wrapper{
+    flex: 0.55;
+    padding: 0 2px;
+}
+
 .content{
     font-size: 1.5vw;
     color: whitesmoke;
 }
 .content a{
     text-decoration: none;
+    margin: 0;
 }
 .content p{
     text-justify: distribute-all-lines;
@@ -101,35 +204,18 @@ body{
     color: grey;
 }
 
+.bottom-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    border-top: 0.2px solid whitesmoke;
+}
+
 .onsmall{
     display: none;
 }
 
-.userimage{
-    width: 51px;
-    height: auto;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-img{
-     /*display: inline-block; */
-    border: 1px solid black;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-}
-
-.upper-wrapper{
-    width: 80%;
-    display: flex;
-    justify-content: center;
-}
-
-
-.lower-wrapper{
-    width: 80%;
-}
 
 .paginator{
     width: 100%;
@@ -154,30 +240,7 @@ img{
     font-weight: 900;
 }
 
-.sidebar{
-   height: 10vh;
-}
 
-.link{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-
-}
-.sidebar a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20%;
-    padding: 5px;
-    border: 1px solid whitesmoke;
-}
-
-.sidebar a:hover{
-    color: grey;
-}
 .searchbar{
     height: 100%;
     color: black;
@@ -193,20 +256,19 @@ img{
 }
 
 .searchbar form button{
+    padding: 3px 10px;
+    border: 1px solid black;
     color: black;
     cursor: pointer;
+    background-color: rgb(81, 192, 174);
 }
 
-.bottom-wrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1rem;
-    border-top: 0.2px solid whitesmoke;
+.searchbar form button:hover{
+    background-color: aliceblue;
 }
+
 
 .like{
-    /*padding-left: 30%;*/
     margin-left: 10px;
     color: black;
     font-size: 16px;
@@ -220,6 +282,9 @@ img{
 .message-class{
     color: black;
 }
+
+
+
 
 @media only screen and (max-width: 850px){
     .nav{
@@ -295,15 +360,15 @@ img{
         font-size: 4vw;
     }
     .subtitle{
-        font-size: 2vw;
+        font-size: 4vw;
     }
     .content{
-        font-size: 3vw;
-        margin:0 1%;
+        font-size: 3.5vw;
+        /* padding: 8px 0; */
         text-align: justify;
     
     }
-    .userdetail,.upper-wrapper{
+    .userdetail{
         width: 100%;
         font-size: 2vw;
         display: flex;
@@ -345,5 +410,17 @@ img{
     }
     .userimage{
         width: 30px;
+        right: 20%;
+    }
+    .middle-wrapper{
+        margin-top: 5px;
+        height: 54%;
+    }
+    .title{
+        bottom: 20px;
+        left: 15px;
+    }
+    .post-image{
+        width: 85%;
     }
 }
