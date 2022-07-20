@@ -27,14 +27,14 @@
 </div>
 {% else %}
 
-<div class="main long">   
+<div class="main">   
     <div class="container">
       <div class="upper-wrapper">
         <div class="userimage">
             <a href="{% url 'userprofile' post.user.username %}"><img class="img-wrapper" src={{ post.user.profile.image.url }}></a>    
         </div>
         <div class="post-title">
-            <div class="subtitle"><span>{{ post.sub_title|truncatechars:20 }}</span></div>
+            <div class="subtitle"><span>{{ post.sub_title }}</span></div>
         </div>
     </div>   
     <div class="userlist-middle">
