@@ -3,6 +3,7 @@
 {% load static %}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/css/profile.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/profile.css' %}?{% now "U" %}">
 {% endblock %}
 
 {% block content %}
@@ -24,14 +25,16 @@
 
     {% for post in posts %}
     <div class="profilecontainer">
-        <div class="box-profile">
+    <div class="box-profile">
         <div class="lower-profile">
-        <div class="userposts">
-            <div class="title"><h3>{{ post.title }}</h3></div>
-            <div class="subtitle"><p>{{ post.sub_title }}</p></div>
-        </div>
-        </div>
+            <div class="userposts">
+                <div class="subtitle"><h2>{{ post.title }}</h2></div>
+                <div class="subtitle"><p>{{ post.sub_title }}</p></div>
+                <div class="subtitle"><p>{{ post.content|truncatewords:13 }}</p></div>
+            </div>
+            <div class="pp-image-wrapper"><img src="{{post.post_image.url}}" alt=""></div>
         </div>
     </div>
+</div>
     {% endfor %}
 {% endblock %}

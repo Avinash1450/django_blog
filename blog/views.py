@@ -71,7 +71,7 @@ def addpost(request):
 def updatepost(request,postid):
 	form = Postform(instance=Blogpost.objects.get(blog_id=postid))
 	if request.method == 'POST':
-		form = Postform(request.POST, instance=Blogpost.objects.get(blog_id=postid))
+		form = Postform(request.POST,request.FILES, instance=Blogpost.objects.get(blog_id=postid))
 		if form.is_valid():
 			form.save()
 			return redirect('profile')

@@ -6,7 +6,9 @@ from .models import Profile
 @receiver(post_save,sender=Profile)
 def alterimage(sender,created,instance,**kwargs):
 	if created:
-		img = Image.open(instance.image)
-		size = (100,100)
-		img = img.resize(size)
+		basewidth = 200
+		img = Image.open(instance.image.path)
+		wpercent = (basewidth/float(img.size[0]))
+		hsize = int(float(img.size[1])*float(wpercent))
+		img = img.resize((basewidth,hsize),Image.ANTIALIAS)
 		img.save(instance.image.path)

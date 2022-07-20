@@ -12,7 +12,7 @@ body{
 .nav{
     display: flex;
     font-size: 17px;
-    font-weight: bolder;
+    font-weight: bold;
     color: whitesmoke;
     background-color: rgb(81, 192, 174);
     width: 100%;
@@ -118,22 +118,28 @@ body{
 
 .upper-wrapper{
     width: 100%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .userimage{
     flex:0.1;
-    height: auto;
+    height: 60%;
     border-radius: 50%;
-    display: inline-block;
-   
+    box-sizing: border-box;
+   background-size: 50%;
 }
-
+.img-wrapper a{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
 .img-wrapper{
    border: 1px solid black;
-   width: 100%;
+   width: 60%;
    height: auto;
    border-radius: 50%;
 }
@@ -163,8 +169,7 @@ body{
 }
 
 .post-image{
-    /* padding-top: 15px; */
-    /* padding-left: 10px; */
+   
     width: 95%;
     border-radius: 15px;
 }
@@ -249,7 +254,6 @@ body{
 
 .searchbar form input{
     color: black;
-    font-weight: bold;
     padding: 3px;
     margin: 2px;
     border-radius: 5px;
@@ -261,6 +265,10 @@ body{
     color: black;
     cursor: pointer;
     background-color: rgb(81, 192, 174);
+}
+.searchbar form span{
+    color: black;
+    font-size: 15px;
 }
 
 .searchbar form button:hover{
@@ -283,6 +291,18 @@ body{
     color: black;
 }
 
+.btn{
+    color: rgb(15, 14, 14);
+    padding: 5px 10px;
+    font-size: 11px;
+   
+    border: 1px solid black;
+    background-color: rgb(81, 192, 174);
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: rgb(235, 245, 243);
+}
 
 
 
@@ -294,6 +314,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-size: 10px;
     }
     .onsmall{
         cursor: pointer;
@@ -378,7 +399,7 @@ body{
         display: flex;
     }
     .sidebar {
-        font-size: 10px;
+        
         top: 15%;
         height: 30px;
     }
@@ -399,8 +420,7 @@ body{
         margin: 0.5px;
     }
     .sidebar a span{
-        font-size: 7px;
-        font-weight: bold;
+        font-size: 2.3vw;
     }
     .likelike a span{
         font-size: 5px;
@@ -422,5 +442,14 @@ body{
     }
     .post-image{
         width: 85%;
+    }
+    .btn{
+        font-size: 8px;
+        padding: 3px;
+        margin: 2px 0;
+    }
+    .searchbar form span{
+        font-size: 10px;
+        color: black;
     }
 }
