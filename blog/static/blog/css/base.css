@@ -90,11 +90,7 @@ body{
     font-size: 15px;
 }
 
-.sd-span:hover{
-    font-size: 20px;
-    transition: 0.3s;
-}
- 
+
 
 .userdetail{
     font-size: 1vw;
@@ -431,7 +427,7 @@ body{
     }
     .userimage{
         width: 30px;
-        right: 20%;
+        height: 90%;
     }
     .middle-wrapper{
         margin-top: 5px;
@@ -442,7 +438,8 @@ body{
         left: 15px;
     }
     .post-image{
-        width: 85%;
+        width: 100%;
+        height: auto;
     }
     .btn{
         font-size: 8px;
