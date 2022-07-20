@@ -55,6 +55,7 @@ body{
     /* width: 35%; */
     display: flex;
     justify-content: center;
+    height: fit-content;
 }
 
 .sidebar{
@@ -127,7 +128,7 @@ body{
 
 .userimage{
     flex:0.1;
-    height: 60%;
+    height: 120%;
     border-radius: 50%;
     box-sizing: border-box;
    background-size: 50%;
@@ -169,7 +170,7 @@ body{
 }
 
 .post-image{
-   
+    padding-top: 5px;
     width: 95%;
     border-radius: 15px;
 }

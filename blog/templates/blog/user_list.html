@@ -27,7 +27,7 @@
 </div>
 {% else %}
 
-<div class="main">   
+<div class="main long">   
     <div class="container">
       <div class="upper-wrapper">
         <div class="userimage">
@@ -45,13 +45,13 @@
             <span>posted by:-<a href="{% url 'userprofile' post.user.username %}">{{ post.user }}</a></span>
             <span>{{ post.date }}</span>
         </div>
-          <div class="bottom-wrapper">
+        <div class="bottom-wrapper">
             <span class="likelike" ><span class="like">{{ post.likes }} likes</span></span>
                 {% if post in liked_blogs %}
                     <a href="{% url 'unlike-post' post.blog_id %}"><div class="like"><span>dislike</span></div></a>
                 {% else %}
                     <a href="{% url 'like-post' post.blog_id %}"><div class="like"><span>like</span></div></a>
-            {% endif %}
+                {% endif %}
         </div>
 </div>
 </div>
